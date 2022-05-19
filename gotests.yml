@@ -32,10 +32,8 @@ jobs:
         cd go/src/github.com/cilium/tetragon/
         sudo -E make tools-install LIBBPF_INSTALL_DIR=/usr/local/lib CLANG_INSTALL_DIR=/usr/bin
         sudo -E ldconfig /usr/local/
-        sudo sed -i '/secure_path/d' /etc/sudoers
         sudo sed -i '/env_reset/d' /etc/sudoers
         echo `which clang`
-        echo `which llc`
         echo `clang --version`
         make check-copyright
         sudo make tetragon-bpf
